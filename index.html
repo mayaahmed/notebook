@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--  Programmer : Maya Ahmed 
+      Files: index.html;
+      These file contains the codes for making a Drawing App.
+      Date: "Aug 31 2016" -->
+
+	<head>
+		<meta charset="utf-8" />
+		<title>Punjiri: Web and Mobile Technologies.</title>
+		<link rel="stylesheet" type="text/css" href="general.css">
+        <link rel="stylesheet" type="text/css" href="doodle.css">
+        <link rel="stylesheet" type="text/css" href="diary.css">
+	    <link rel="stylesheet" type="text/css" href="pages.css">
+
+	</head>
+
+	<body>
+		<div id="big_wrapper">
+          
+<div id="topStuff">
+          <header id="top_header">
+				<p> Notebook </p>
+			</header>
+			<nav id="top_menu">
+				<ul>
+
+
+
+
+                  <li>
+                    <div id="myNav" class="overlay">
+                      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> &times;</a>
+                      <div class="overlay-content">
+                       <p> &copy; Punjiri Web and Mobile Technologies, 2016. </p>
+                       <p> Email: maya.ahmed@gmail.com</p>
+                      </div>
+                    </div>
+
+                    <span style="font-size:30px; cursor:pointer" onclick="openNav()"> &equiv;</span>
+                  </li>
+                                    
+                </ul>
+			</nav>
+            </div>
+     
+<div id="toolbar">
+
+<div id="colors">
+</div>
+
+
+
+<div id="rad">
+Radius <span id="radval">10</span>
+<div id="decrad" class="radcontrol" >-</div>
+<div id="incrad" class="radcontrol">+</div>
+</div>
+<div id="eraser" onclick="changePen()">
+Eraser
+</div>
+
+
+
+<div id="new">
+New
+</div>
+
+<div id="save">
+Save
+</div>
+
+
+</div>
+
+
+<div id="container"> </div> 
+<div id="pageIndex">
+
+
+
+<p>Enter Page number: </p>
+<input id="pageNumber" type="number" min="0" max="10" />
+<input type="submit" onclick="choosePage()" />
+</div>
+
+
+
+
+</div>
+<script src="diary.js"></script> 
+ <script src="pages.js"></script> 
+
+<script src="general.js"></script> 
+
+<script src="doodle.js"></script> 
+<script src="colors.js"></script> 
+<script src="save.js"></script> 
+ 
+ 
+</body>
+</html>
