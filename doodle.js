@@ -1,7 +1,7 @@
 var canvas = document.getElementById('page0');
 var context= canvas.getContext('2d'); 
-
-
+var previousPage=0;
+var currentPage=0;
 context.lineWidth=radius*2; 
 
 var p = 5;
@@ -9,18 +9,20 @@ var p = 5;
 var radius=10;
 
 var dragging = false;
-
-
+console.log(n);
 
 function choosePage(){
+  previousPage=currentPage;
  p =document.getElementById("pageNumber").value;
- for(var j=0; j<p; j++){ setTimeout(nextPage(j),300);}
- string= "page"+p; 
+ currentPage=p;
+
+reachPage(p);
+string= "page"+p; 
 canvas = document.getElementById(string);
-console.log(canvas); console.log(string);
+
 context=canvas.getContext('2d');
 context.lineWidth=radius*2;
-console.log(context);
+
 check();
 }
 
@@ -76,9 +78,11 @@ var putPoint=function(e){
   
      context.lineTo(pos.x, pos.y);
     context.stroke();
+    takeSnapshot();
   context.beginPath();
   context.arc(pos.x,pos.y, radius, 0, Math.PI*2);
   context.fill();
+  takeSnapshot();
   context.beginPath();
   context.moveTo(pos.x, pos.y);
   }
@@ -117,7 +121,7 @@ function changePen(){
 
 
 function check(){
-console.log(canvas);
+
 canvas.addEventListener("mousedown",engage);
 canvas.addEventListener("mouseup",disengage);
 
@@ -129,3 +133,7 @@ canvas.addEventListener("mousemove",erasePoint);
 } 
 
 
+function takeSnapshot() {
+    snapshot = context.getImageData(0, 0, canvas.width, canvas.height);
+localStorage.savedPages = JSON.stringify(pagesArray);
+}
